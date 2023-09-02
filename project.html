@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project - Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/fontawesome.min.css">
+</head>
+<body>
+    <div class="header">
+    <div class="container">
+       <div class="navbar">
+        <nav>
+            <ul id="MenuItems">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="project.html">Project</a></li>
+                <li><a href="about.html">About</a></li>
+            </ul>
+        </nav>
+       </div>
+    </div></div>
+        <div class="slideshow-container">
+            <div class="mySlides">
+                <a href="project.html" target="_blank">
+               <img src="images/hokage.png" style="width: 430px; margin-left: 280px;background-color: black;" height="300px"></a>
+           <a href="hokagestore.html" target="_blank">
+            <div class="head"><p style="color :rgb(39, 38, 38);">Hokage Store</p></a>
+                <div class="des">
+                    <p>It is an E-Commerce website which is specially based on Anime. It is developed using programming languages like HTML, CSS, JavaScript. Is is a basic static website.</p></br>
+                    <b>Introduction</b><p>WEBSITE BUILD WITH THE HELP OF HTML, CSS, JAVA</p>
+                        <p>IT WAS DONE WITH THE HELP OF VS CODE</p>
+                        <p>IT IS SPECIFICALLY RELATED TO ANIME, SO IT HAS VARIOUS ANIME MERCH</p>
+                        <p>ANIME REFERS TO JAPANESE ANIMATION</p>
+        </div>
+            </div>
+       </div>
+       
+
+       <div class="mySlides">
+            <a href="project.html" target="_blank">
+            <img src="images/animix.png" style="width: 430px; margin-left: 280px;background-color: black;" height="300px"></a>
+            <a href="AOT.html" target="_blank">
+                <div class="head"><p style="color :rgb(39, 38, 38);">Animixplay</p></a>
+                    <div class="des">
+                        <p>It is an Online Video Streaming website where you can watch differnt genre of Anime. It was developed using HTML, CSS, JavaScript, XAAMP. Is is static website.</p>
+                        <b>Introduction</b>
+                        <p>WEBSITE BUILD WITH THE HELP OF HTML, CSS, PHP & JAVASCRIPT</p>
+                        <p>IT WAS DONE USING VS CODE</p>
+                        <p>PHP HERE IS USED FOR DATABASE CONNECTIVITY WITH XAAMP</p>
+                        <p>IT IS SPECIALLY RELATED WITH ANIME, SO VARIOUS ANIME SEIRES & MOVIES ARE AVAILABLE</p>
+                        <p>ANIME REFERS TO THE JAPANESE ANIMATION</p>
+
+            </div>
+                </div>
+   </div>
+    </div>
+    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+    <a class="next" onclick="plusSlides(1)">&#10095;</a>
+  </div>
+  <br>
+  <div style="text-align:center">
+    <span class="dot" onclick="currentSlide(0)"></span>
+    <span class="dot" onclick="currentSlide(1)"></span>
+
+</div><br><br><br>
+<script>
+    let slideIndex = 0;
+     let timeoutId = null;
+     const slides = document.getElementsByClassName("mySlides");
+     const dots = document.getElementsByClassName("dot");
+     
+     showSlides();
+     function currentSlide(index) {
+          slideIndex = index;
+          showSlides();
+     }
+    function plusSlides(step) {
+       
+       if(step < 0) {
+           slideIndex -= 2;
+           
+           if(slideIndex < 0) {
+             slideIndex = slides.length - 1;
+           }
+       }
+       
+       showSlides();
+    }
+     function showSlides() {
+       for(let i = 0; i < slides.length; i++) {
+         slides[i].style.display = "none";
+         dots[i].classList.remove('active');
+       }
+       slideIndex++;
+       if(slideIndex > slides.length) {
+         slideIndex = 1
+       }
+       slides[slideIndex - 1].style.display = "block";
+       dots[slideIndex - 1].classList.add('active');
+        if(timeoutId) {
+           clearTimeout(timeoutId);
+        }
+       timeoutId = setTimeout(showSlides, 30000); // Change image every 7 seconds
+     }
+   </script>
+   <script>
+       // get search bar element
+       const searchInput = document.getElementById("searchInput");
+       
+       // store name elements in array-like object
+       const namesFromDOM = document.getElementsByClassName("col-4");
+       
+       // listen for user events
+       searchInput.addEventListener("keyup", (event) => {
+           const { value } = event.target;
+           
+           // get user search input converted to lowercase
+           const searchQuery = value.toLowerCase();
+           
+           for (const nameElement of namesFromDOM) {
+               // store name text and convert to lowercase
+               let name = nameElement.textContent.toLowerCase();
+               
+               // compare current name to search input
+               if (name.includes(searchQuery)) {
+                   // found name matching search, display it
+                   nameElement.style.display = "block";
+               } else {
+                   // no match, don't display name
+                   nameElement.style.display = "none";
+               }
+           }
+       });
+       
+       </script>
+</body>
+</html>
